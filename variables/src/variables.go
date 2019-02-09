@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"reflect"
-)
+import "fmt"
 
 /*					INFOS:
 *	-	Package level variables are global.
@@ -96,12 +93,51 @@ func main() {
 	*	fmt.Println("Memory address of *module* variable is", ptr,
 	*		"and the value of *module* is", *ptr)
 	*
+	*****************************************
+	*					EXAMPLE 6
+	*
+	*	name := "Nigel"
+	*	course := "Docker Deep Dive"
+	*
+	*	fmt.Println("\nHi", name, "you're currently watching",
+	*	course)
+	*
+	*	// we create this function to show how to work with Pointers
+	*	changeCourse(&course)
+	*
+	*	fmt.Println("\nYou are now watching course", course)
 	 */
 
-	module := 3.2
-	ptr := &module
+	name := "Nigel"
+	course := "Docker Deep Dive"
 
-	fmt.Println("Module is set to", module, "and is of type", reflect.TypeOf(module))
-	fmt.Println("Memory address of *module* variable is", ptr,
-		"and the value of *module* is", *ptr)
+	fmt.Println("\nHi", name, "you're currently watching",
+		course)
+
+	// we create this function to show how to work with Pointers
+	changeCourse(&course)
+
+	fmt.Println("\nYou are now watching course", course)
+}
+
+/*
+*						EXAMPLE 6
+*
+*	This functions is used to show how to work with pointers
+*
+*	func changeCourse(courseParam *string) string {
+*	*courseParam = "First Look: Native Docker Clustering"
+*
+*	fmt.Println("\nTrying to change your course to", *courseParam)
+*
+*	return *courseParam
+*	}
+ */
+
+func changeCourse(courseParam *string) string {
+	*courseParam = "First Look: Native Docker Clustering"
+
+	fmt.Println("\nTrying to change your course to", *courseParam)
+
+	return *courseParam
 }
