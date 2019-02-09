@@ -80,13 +80,28 @@ func main() {
 	*	fmt.Println("Name is set to", name, "and is of type", reflect.TypeOf(name))
 	*	fmt.Println("Course is set to", course, "and is of type", reflect.TypeOf(course))
 	*	fmt.Println("Module is set to", module, "and is of type", reflect.TypeOf(module))
+	*
+	*****************************************
+	*
+	*					EXAMPLE 5
+	*	Pointers:
+	*
+	*	module := 3.2
+	*	ptr := &module // The "&" is a memory reference of module variable
+	*
+	*	fmt.Println("Module is set to", module, "and is of type", reflect.TypeOf(module))
+	*
+	*	// ptr = memory reference
+	*	// *ptr = memory dereferencing
+	*	fmt.Println("Memory address of *module* variable is", ptr,
+	*		"and the value of *module* is", *ptr)
+	*
 	 */
 
-	name := "Nigel"
-	course := "Docker Deep Dive"
 	module := 3.2
+	ptr := &module
 
-	fmt.Println("Name is set to", name, "and is of type", reflect.TypeOf(name))
-	fmt.Println("Course is set to", course, "and is of type", reflect.TypeOf(course))
 	fmt.Println("Module is set to", module, "and is of type", reflect.TypeOf(module))
+	fmt.Println("Memory address of *module* variable is", ptr,
+		"and the value of *module* is", *ptr)
 }
