@@ -1,11 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
-/*					INFOS:
+/*					READ IT BEFORE ALL:
 *	-	Package level variables are global.
-*	-	Shorthand declare and initializa ":=" only workd inside of functions
+*	-	Shorthand declare and initializa ":=" only work inside of functions
 *	-	Variables declared at the function level MUST be used (Garbage Collector)
+*	-	Constants are declared like this: const *nameOfConst* *type*
+*	-		-> Constants are immutable
+*	-	Variables are declared like this: var *nameOfConst* *type*
+*	-		-> Variables are mutable
  */
 
 var (
@@ -94,6 +101,7 @@ func main() {
 	*		"and the value of *module* is", *ptr)
 	*
 	*****************************************
+	*
 	*					EXAMPLE 6
 	*
 	*	name := "Nigel"
@@ -106,9 +114,19 @@ func main() {
 	*	changeCourse(&course)
 	*
 	*	fmt.Println("\nYou are now watching course", course)
+	*
+	*	*****************************************
+	*
+	*					EXAMPLE 7
+	*	Is the same that Example 6 but we need change this line
+	*	from:
+	*		name := "Nigel"
+	*	To:
+	*	name := os.Getenv("USERNAME")
+	*
 	 */
 
-	name := "Nigel"
+	name := os.Getenv("USERNAME")
 	course := "Docker Deep Dive"
 
 	fmt.Println("\nHi", name, "you're currently watching",
@@ -122,6 +140,7 @@ func main() {
 
 /*
 *						EXAMPLE 6
+*						EXAMPLE 7
 *
 *	This functions is used to show how to work with pointers
 *
